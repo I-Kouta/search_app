@@ -10,9 +10,9 @@
       <%= f.text_field :name_cont, placeholder: '商品名' %>
     </div>
     <div class="search-field">
-      <%= f.label :category_id_eq, 'カテゴリ' %>
+      <%= f.label :category_id_in, 'カテゴリ' %>
       <br>
-      <%= f.collection_select(:category_id_eq, Category.all, :id, :name, {include_blank: "---"}) %>
+      <%= f.collection_check_boxes(:category_id_in, Category.all, :id, :name, {include_blank: "---"}) %>
     </div>
     <div class="search-field">
       <%= f.label :price_gteq, '価格'%>
