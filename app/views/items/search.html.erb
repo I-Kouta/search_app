@@ -10,6 +10,11 @@
       <%= f.text_field :name_cont, placeholder: '商品名' %>
     </div>
     <div class="search-field">
+      <%= f.label :user_nickname_cont, '出品者名' %>
+      <br>
+      <%= f.text_field :user_nickname_cont, placeholder: '出品者名' %>
+    </div>
+    <div class="search-field">
       <%= f.label :category_id_in, 'カテゴリ' %>
       <br>
       <%= f.collection_check_boxes(:category_id_in, Category.all, :id, :name, {include_blank: "---"}) %>
