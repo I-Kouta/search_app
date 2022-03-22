@@ -35,6 +35,17 @@ class ItemsController < ApplicationController
   end
 
   def search
+    # params[:q]がnilではない且つ、params[:q][:name]がnilではないとき（商品名の欄が入力されているとき）
+    # if params[:q] && params[:q][:name]と同じような意味合い
+    # &.:nilの場合は「nil」を返す
+    # dig:ネストしたハッシュからキーを指定して値を取り出す
+    if params[:q]&.dig(:name)
+      # squishメソッド:冒頭と末尾のスペースを削除、連続したスペースを1つに減らす
+      squished_keywords = params[:q][:name].squish
+      # 半角スペースを区切り文字として配列を生成し、paramsに入れる
+      # _any:いずれかに一致する検索（ransackのオプション）
+      params[:q][:name_cont_any] = squished_keywords.split(" ")
+    end
     # ransack:検索オブジェクトを生成
     # params[:q]:ransackを使用したフォームから送られてくるパラメーターを受け取る
     @q = Item.ransack(params[:q])
