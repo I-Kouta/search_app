@@ -9,6 +9,11 @@
       <br>
       <%= f.text_field :name_cont, placeholder: '商品名' %>
     </div>
+    <div class="search-field">
+      <%= f.label :category_id_eq, 'カテゴリ' %>
+      <br>
+      <%= f.collection_select(:category_id_eq, Category.all, :id, :name, {include_blank: "---"}) %>
+    </div>
     <%= f.submit '検索' %>
   <% end %>
   <ul class='item-lists' id="detailed-search-result">
