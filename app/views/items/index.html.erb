@@ -1,0 +1,10 @@
+<%= render "shared/header" %>
+<h3>トップページ</h3>
+<h3><%= link_to '商品出品', new_item_path%></h3>
+<% @items.each do |item| %>
+  <div class="posted-content">
+    <%= image_tag item.image %><br>
+    <%= item.name%><br>
+    <%= link_to '詳細', item_path(item.id)%>
+  </div>
+<% end %>

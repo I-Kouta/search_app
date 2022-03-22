@@ -1,0 +1,24 @@
+<%= form_with model: @item, id: 'new_item', local: true do |f| %>
+<%= render 'shared/error_messages', model: f.object %>
+  <div class="name-field">
+    <span>■ 名前</span>
+    <%= f.text_field :name %>
+  </div>
+  <div class="image-field">
+    <span>■ 画像</span>
+    <div class="click-upload">
+      <%= f.file_field :image %>
+    </div>
+  </div>
+    <div class="category-field">
+      <span>■ カテゴリー</span>
+      <%= f.collection_select :category_id, Category.all, :id, :name, {include_blank: "---"} %>
+    </div>
+    <div class="pricefield">
+      <span>■ 価格</span>
+      <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"半角数字で入力" %>
+    </div>
+  <div class="submit-btn">
+    <%= f.submit '送信' %>
+  </div>
+<% end %>

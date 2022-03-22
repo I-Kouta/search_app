@@ -1,0 +1,39 @@
+#detailed-search-wrapper{
+  display:flex;
+  justify-content: center;
+}
+
+#detailed-search-form{
+  background-color: white;
+  width: 350px;
+}
+
+.search-field{
+  margin: 0.5rem 0;
+}
+
+#detailed-search-result-wrapper{
+  width: 80%;
+  display: flex;
+}
+
+.list{
+  list-style: none;
+}
+
+#detailed-search-result{
+  width: 100%;
+  display: flex;
+}
+
+.posted-content{
+  margin: 10px;
+}
+
+.check_lb {
+  display:block;
+}
+
+#post_search{
+  display: flex;
+}

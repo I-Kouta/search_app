@@ -1,0 +1,25 @@
+<h3>詳細ページ</h3>
+<div class="posted-content">
+  <%= image_tag @item.image %><br>
+  <table>
+    <tr>
+      <td>商品名</td>
+      <td><%= @item.name%></td>
+    </tr>
+    <tr>
+      <td>カテゴリー</td>
+      <td><%= @item.category.name%></td>
+    </tr>
+    <tr>
+      <td>価格</td>
+      <td><%= @item.price%></td>
+    </tr>
+    <tr>
+      <td>出品者</td>
+      <td><%= @item.user.nickname%></td>
+    </tr>
+  </table>
+  <% if user_signed_in? && current_user.id == @item.user_id%>
+    <%= link_to '編集', edit_item_path(@item.id)%>
+  <% end %>
+</div>
