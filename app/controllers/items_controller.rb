@@ -34,6 +34,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    # ransack:検索オブジェクトを生成
+    # params[:q]:ransackを使用したフォームから送られてくるパラメーターを受け取る
+    @q = Item.ransack(params[:q])
+    # result:検索結果を取得
+    @items = @q.result
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :image, :category_id, :price).merge(user_id: current_user.id)
