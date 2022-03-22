@@ -4,10 +4,10 @@
 <div class='item-contents' id="detailed-search-result-wrapper">
   <%= search_form_for @q, url: search_items_path, html: {id: "detailed-search-form"} do |f| %>
     <div class="search-field">
-      <%= f.label :name_cont, '商品名' %>
+      <%= f.label :name, '商品名' %>
       <%# name_cont:検索オプション。nameカラムに対して検索ができる %>
       <br>
-      <%= f.text_field :name_cont, placeholder: '商品名' %>
+      <%= f.text_field :name, placeholder: '商品名' %>
     </div>
     <div class="search-field">
       <%= f.label :user_nickname_cont, '出品者名' %>
